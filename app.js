@@ -2,7 +2,7 @@ const axios = require("axios");
 const express = require("express");
 const app = express();
 
-const port = 5002;
+const port = 5005;
 
 app.use(express.json());
 
@@ -14,6 +14,10 @@ app.use((req, res, next) => {
   );
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
   next();
+});
+
+app.use("/", (req, res, next) => {
+  res.send("Hello");
 });
 
 app.use("/location", async (req, res, next) => {
