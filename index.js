@@ -58,4 +58,6 @@ app.use("/weather", async (req, res, next) => {
   res.json(weather);
 });
 
-app.listen(port);
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
+});
