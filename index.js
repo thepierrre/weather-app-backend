@@ -16,10 +16,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/", (req, res, next) => {
-  res.send("Hello");
-});
-
 app.use("/location", async (req, res, next) => {
   // ipstack key
   const apiKey = "0fe6aa6fe86b3038828f74b6d0a57c61";
@@ -56,6 +52,10 @@ app.use("/weather", async (req, res, next) => {
   }
 
   res.json(weather);
+});
+
+app.use("/", (req, res, next) => {
+  res.send("Hello");
 });
 
 app.listen(port, () => {
