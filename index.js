@@ -16,7 +16,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "https://piotr-weather-app.netlify.app",
+    origin: "*",
   })
 );
 app.options("*", cors());
