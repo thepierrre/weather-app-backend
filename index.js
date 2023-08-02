@@ -7,12 +7,19 @@ const port = 5005;
 
 app.use(express.json());
 
+// app.use(
+//   cors({
+//     origin: "https://piotr-weather-app.netlify.app", // Replace with your frontend domain
+//     credentials: true,
+//   })
+// );
+
 app.use(
   cors({
-    origin: "https://piotr-weather-app.netlify.app", // Replace with your frontend domain
-    credentials: true,
+    origin: "https://piotr-weather-app.netlify.app",
   })
 );
+app.options("*", cors());
 
 // app.use((req, res, next) => {
 //   res.setHeader("Access-Control-Allow-Origin", "*");
