@@ -12,7 +12,6 @@ app.use(
     origin: "*",
   })
 );
-app.options("*", cors());
 
 app.use("/location", async (req, res, next) => {
   const { lat, lon } = req.body;
