@@ -35,18 +35,14 @@ app.use("/weather", async (req, res, next) => {
   const apiKey = process.env.WEATHERKEY;
   const APIUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 
-  let weather;
-  let error;
-
   try {
     const response = await axios.get(APIUrl);
-    weather = response.data;
-  } catch (error) {
-    weather = null;
-    error = "Something went wrong. Please try again.";
-  }
+    const weather = response.data;
 
-  res.json(weather);
+    res.json(weather);
+  } catch (error) {
+    res.status(422).json({ errorMessage: "Couldn't find the entered city." });
+  }
 });
 
 app.listen(port, () => {
