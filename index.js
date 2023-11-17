@@ -20,7 +20,7 @@ app.get("/coordinates", async (req, res, next) => {
   const { city } = req.query;
 
   // const APIKey = OpenWeatherAPIKey;
-  const APIKey = process.env.APIKey;
+  const APIKey = process.env.APIKEY;
   const limit = 1;
   const APIUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=${limit}&appid=${APIKey}`;
 
